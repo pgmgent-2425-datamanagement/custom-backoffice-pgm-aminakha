@@ -12,13 +12,18 @@ img {
 
 .exercise-container {
   display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   list-style: none;
   gap: 1rem;
+ 
 }
 
 .exercise__item {
     border: 1px solid #ccc;
-    padding: 1rem;
-    text-align: center;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  & input {
+    padding: .75rem 1rem;
+  }
 }

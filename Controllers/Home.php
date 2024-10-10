@@ -17,4 +17,9 @@ class HomeController extends BaseController {
         ]);
     }
 
+    public static function edit($id) {
+
+        $exercise = Exercise::find($id);
+        print_r($exercise);
+    } 
 }
