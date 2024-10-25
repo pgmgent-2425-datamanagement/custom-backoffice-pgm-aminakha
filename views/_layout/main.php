@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/main.css?v=<?php if( $_ENV['DEV_MODE'] == "true" ) { echo time(); }; ?>">
      <link rel="stylesheet" href="/css/header.css">
+     <link rel="stylesheet" href="/css/footer.css">
+     <link rel="stylesheet" href="/css/form.css">
+     
 </head>
 <body>
     
@@ -16,10 +19,8 @@
     <main>
         <?= $content; ?>
     </main>
-    
-    <footer>
-        &copy; <?= date('Y'); ?> - BrandName
-    </footer>
+    <?php include "../views/partials/footer.php"?>
+
     
     
 </body>

@@ -1,0 +1,11 @@
+@import "./general.css";
+footer {
+    background-color:var(--first-color); ;
+    height: 100vh;
+    margin-top: 2rem;
+    color: var(--light-color);
+    text-align: center;
+    & h2 {
+        padding-top: 2rem;
+    }
+}
