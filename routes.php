@@ -6,6 +6,7 @@ $router->get('/', 'HomeController@index');
 $router->get("/api/get_exercises", "ExerciseController@getExercises");
 
 //Exercise routes
+$router->get('/exercise', 'ExercisePageController@index');
 $router->get('exercise/edit/(\d+)','EditPageController@edit');
 $router->post("exercise/edit/(\d+)", "ExerciseController@edit");
 

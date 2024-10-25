@@ -1,0 +1,21 @@
+:root {
+    --first-color:#131B23;
+    --second-color:#E9F1F7;
+    --thirdary-color:#213547;
+    --fifth-color:#182b39;
+    --light-color: #f4f8fb;
+    --gray-color: #c4d1d6;
+    --max-width: 95rem;
+    --general-padding: 1rem;
+    --border-radius: 0.5rem;
+   
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--light-color);
+    &:hover {
+        color:#bbbbbb;
+    }
+}

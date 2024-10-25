@@ -1,0 +1,12 @@
+@import "./general.css"; 
+   
+header {
+    background-color: var(--first-color);
+    color: var(--light-color);
+    & .brand {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    display: flex;
+    justify-content: space-between;
+}

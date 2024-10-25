@@ -9,8 +9,8 @@ class EditPageController extends BaseController {
    
     public static function edit($id) {
         $foundExercise = Exercise::find($id);
-        self::loadView('edit-page', [
-            'title' => 'Edit page',
+        self::loadView('/exercise/changeExercise/edit-page-exercise', [
+            'title' => 'Edit Exercise',
             'foundExercise' => $foundExercise
         ]);
        

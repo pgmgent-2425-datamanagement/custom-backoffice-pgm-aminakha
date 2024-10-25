@@ -17,6 +17,8 @@ class ExerciseController extends BaseController {
         $exercise->type_id = $_POST['type_id'];
         $exercise->image_url = $_POST['image_url'];
         $exercise->update();
+        header('Location: /exercise');
+        exit;
         }
         self::loadView('edit-page', [
             'title' => 'Edit page',
@@ -29,7 +31,7 @@ class ExerciseController extends BaseController {
     public static function delete($id) {
         $exercise = Exercise::find($id);
         $exercise->delete();
-        header('Location: /');
+        header('Location: /exercise');
         }
 
     public static function getExercises() {
@@ -41,7 +43,7 @@ class ExerciseController extends BaseController {
         //method bij api controller
     }
     public static function add() {
-        self::loadView('/exercise/form', [
+        self::loadView('/exercise/addExercise/form', [
             'title' => 'Add page'
         ]);
         if(isset($_POST['name'])) {
