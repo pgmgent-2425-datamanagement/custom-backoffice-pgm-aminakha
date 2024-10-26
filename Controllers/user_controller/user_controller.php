@@ -14,37 +14,48 @@ class UserController extends BaseController {
             $user->first_name = $_POST['first_name'];
             $user->last_name = $_POST['last_name'];
             $user->email = $_POST['email'];
-            $user->password = $_POST['password'];
-
-            $fileName = $_FILES["avatar"]["name"];
-            $fileTmpName = $_FILES["avatar"]["tmp_name"];
-            $fileSize= $_FILES["avatar"]["size"];
-            $fileError = $_FILES["avatar"]["error"];
-
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-
-            $allowed = array('jpg', 'jpeg', 'png', 'gif');
-
-            if (in_array($fileActualExt,$allowed))  {
-                if($fileError === 0) {
-                    if($fileSize < 500000) {
-                        $fileNameNew = $fileTmpName.".".$fileActualExt;
-                        $fileDesination = 'uploads/'.$fileNameNew;
-                        move_uploaded_file($fileTmpName, $fileDesination);
-                       print_r("File uploaded");
-                        header("Location: /users");
-                    } else {
-                        echo "Your file is too big!";
-                    }
-                }
+            $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $uploadResult = self::handleFileUpload($_FILES['avatar']);
+            if ($uploadResult['success']) {
+                $user->avatar = $uploadResult['fileName'];
+                $user->save();
+                header("Location: /users");
+                exit();
             } else {
-                echo "You cannot upload files of this type";
+                echo $uploadResult['message'];
             }
-            $user->avatar = $_POST['avatar'];
-
-            $user->save();
-           
         }   
+    }
+
+    private static function handleFileUpload($file) {
+        $allowed = ['jpg', 'jpeg', 'png', 'gif'];
+        $fileName = $file['name'];
+        $fileTmpName = $file['tmp_name'];
+        $fileSize = $file['size'];
+        $fileError = $file['error'];
+
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+
+        if (!in_array($fileActualExt, $allowed)) {
+            return ['success' => false, 'message' => 'You cannot upload files of this type'];
+        }
+
+        if ($fileError !== 0) {
+            return ['success' => false, 'message' => 'There was an error uploading your file'];
+        }
+
+        if ($fileSize > 500000) {
+            return ['success' => false, 'message' => 'Your file is too big'];
+        }
+
+        $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+        $fileDestination = 'uploads/' . $fileNameNew;
+
+        if (move_uploaded_file($fileTmpName, $fileDestination)) {
+            return ['success' => true, 'fileName' => $fileNameNew];
+        } else {
+            return ['success' => false, 'message' => 'Failed to move uploaded file'];
+        }
     }
 }
