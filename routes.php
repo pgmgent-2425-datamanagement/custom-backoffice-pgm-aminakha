@@ -19,4 +19,5 @@ $router->get("exercise/delete/(\d+)", "ExerciseController@delete");
 //Users routes
 $router->get("/users", "UserPageController@index");
 //User adden
-$router->get("users/add", "UserController@add");
+$router->get("user/add", "UserController@add");
+$router->post("user/add", "UserController@add");

@@ -7,6 +7,6 @@ foreach($users as $user) {
 }
 ?>
     </ul>
-    <div  ><a class="btn btn--middle btn--action" href="/exercise/add">Add User</a></div>
+    <div  ><a class="btn btn--middle btn--action" href="/user/add">Add User</a></div>
 
 </div>
