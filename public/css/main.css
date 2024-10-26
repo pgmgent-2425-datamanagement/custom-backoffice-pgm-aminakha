@@ -50,15 +50,15 @@ body {
     }
 }
 
-.exercise-container {
+.items-container{
     display: flex;
     flex-wrap: wrap;
     margin-top: 2rem;
     gap: 1rem;
     justify-content: center;
-    & .exercise__item {
+    & .item  {
         background-color: var(--second-color);
-        width:19rem;
+        width:20rem;
         padding: 1rem;
         outline: solid 3px var(--thirdary-color);
         border-radius: var(--border-radius);
@@ -66,7 +66,7 @@ body {
             color: var(--fifth-color);
             margin-top: 1rem;
         }
-        & .exercise__title {
+        & .item__title {
             padding: .2rem 0;
         }
         & figure {
@@ -95,6 +95,7 @@ body {
         }
        
     }
+    
    
 }
 
@@ -109,6 +110,9 @@ body {
         display: flex;
         width: 8rem;
         margin-top: 2rem; 
+        justify-content: center;
+        text-transform: uppercase;
+        font-weight: 700;
         &:hover {
             background-color: var(--second-color);
             color: var(--fifth-color);

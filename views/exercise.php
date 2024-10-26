@@ -1,6 +1,6 @@
 <section class="container">
     <h1>Exercise Control</h1>
-    <ul class="exercise-container" >
+    <ul class="items-container" >
 <?php
 foreach($exercises as $exercise) {
     include "exercise/item.php";

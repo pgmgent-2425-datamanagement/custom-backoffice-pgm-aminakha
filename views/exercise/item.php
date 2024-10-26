@@ -4,8 +4,8 @@
 ?>
 
 
-    <li class="exercise__item"> 
-    <h3 class="exercise__title"><?=$exercise->name?> • <strong><?= $exercise->difficulty?></strong></h3>
+    <li class="item"> 
+    <h3 class="item__title"><?=$exercise->name?> • <strong><?= $exercise->difficulty?></strong></h3>
     <figure><img src="<?= $exercise->image_url?>" alt="Picture"></figure>
     <p><?= substr($exercise->description, 0, 60)?>...</p>
     <div class="btn-container">
