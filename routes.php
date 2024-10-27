@@ -21,3 +21,10 @@ $router->get("/users", "UserPageController@index");
 //User adden
 $router->get("user/add", "UserController@add");
 $router->post("user/add", "UserController@add");
+
+//User Delete
+$router->get("user/delete/(\d+)", "UserController@delete");
+
+//user editen 
+$router->get('user/edit/(\d+)','UserController@edit');
+$router->post("user/edit/(\d+)", "UserController@edit");

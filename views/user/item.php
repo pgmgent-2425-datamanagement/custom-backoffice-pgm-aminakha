@@ -12,8 +12,8 @@ $avatarPath = !empty($user->avatar) ? $user->avatar : 'path/to/default-avatar.jp
     <p><?=$user->email?> <?=$user->password?>  </p>
     <div class="btn-container">
 
-    <a class="btn btn--action" href="/exercise/edit/<?= $user->id ?>">Edit</a>   
-    <a class="btn" href="/exercise/delete/<?= $user->id?>">Delete</a>
+    <a class="btn btn--action" href="/user/edit/<?= $user->id ?>">Edit</a>   
+    <a class="btn" href="/user/delete/<?= $user->id?>">Delete</a>
     
     </div>
    

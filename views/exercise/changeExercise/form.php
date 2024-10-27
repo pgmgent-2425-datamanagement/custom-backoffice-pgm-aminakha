@@ -9,7 +9,7 @@
     <label for="">Difficulty</label>
     <textarea type="text" name="difficulty" value="<?=$foundExercise->difficulty?>"></textarea> 
     <label for="">Type ID</label>
-    <input type="text" name="type_id" value="<?= $foundExercise->type_id?>">
+    <input type="password" name="type_id" value="<?= $foundExercise->type_id?>">
     <label for="">Image URL</label>
     <input type="text" name="image_url" value="<?= $foundExercise->image_url?>">
     <button class="btn" type="submit">Change</button>

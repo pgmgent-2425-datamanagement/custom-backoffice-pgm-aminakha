@@ -9,11 +9,13 @@
     <label for="last_name">Last name</label>
     <input name="last_name" id="last_name" required>
 
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
+    
 
     <label for="email">Email</label>
     <input type="email" name="email" id="email" required>
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
     
     <label for="avatar">Img</label>
     <input type="file" name="avatar" id="avatar" accept="image/*">
