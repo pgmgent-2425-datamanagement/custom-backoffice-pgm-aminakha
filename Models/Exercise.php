@@ -38,4 +38,14 @@ public function save() {
     ]);
     $this->id = $this->db->lastInsertId();
 }
+
+protected function where($column, $operator, $value) {
+    $sql = "SELECT * FROM exercises WHERE $column $operator :value";
+    $pdo_statement = $this->db->prepare($sql);
+    $pdo_statement->execute([
+        ':value' => $value
+    ]);
+    return self::castToModel($pdo_statement->fetchAll());
+
+}
 }
