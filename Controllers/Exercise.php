@@ -18,10 +18,14 @@ class ExercisePageController extends BaseController {
                 'exercises' => $filteredExercise
             ]);
 
-
             
         }
         
+            self::loadView('/exercise', [
+                'title' => 'Exercises',
+                'exercises' => $exercises
+            ]);
+
 
     }
 
