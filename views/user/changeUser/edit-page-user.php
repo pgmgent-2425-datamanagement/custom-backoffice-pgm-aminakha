@@ -16,7 +16,9 @@
     <input type="password" name="password" id="password">
 
     <label for="">Avatar</label>
-    <input type="file" name="avatar" id="avatar" accept="image/*">
+    <div class="img-upload-container">
+            <input class="input--upload" type="file" name="avatar" id="avatar" accept="image/*">
+    </div>
     <button class="btn" type="submit">Change</button>
 
 </form>
