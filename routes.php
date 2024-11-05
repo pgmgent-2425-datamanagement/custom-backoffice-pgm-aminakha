@@ -28,3 +28,6 @@ $router->get("user/delete/(\d+)", "UserController@delete");
 //user editen 
 $router->get('user/edit/(\d+)','UserController@edit');
 $router->post("user/edit/(\d+)", "UserController@edit");
+
+//Filemanager routes
+$router->get("/filemanager", "FileManagerController@index");
