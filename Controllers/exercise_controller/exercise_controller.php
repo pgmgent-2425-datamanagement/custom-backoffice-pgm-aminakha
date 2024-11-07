@@ -3,13 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\Exercise;
-
 class ExerciseController extends BaseController {
 
     
     public static function edit($id) {
         
         $exercise = Exercise::find($id);
+     
+       
         if(isset($_POST['name'])) {
             $exercise->name = $_POST['name'];
         $exercise->description = $_POST['description'];
@@ -22,7 +23,8 @@ class ExerciseController extends BaseController {
         }
         self::loadView('edit-page', [
             'title' => 'Edit page',
-            'foundExercise' => $exercise
+            'foundExercise' => $exercise,
+            
         ]);
         
 
