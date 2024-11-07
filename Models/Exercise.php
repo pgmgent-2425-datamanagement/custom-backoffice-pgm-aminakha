@@ -48,4 +48,14 @@ protected function where($column, $operator, $value) {
     return self::castToModel($pdo_statement->fetchAll());
 
 }
+
+protected  function getDifficultyData() {
+    $sql = "SELECT difficulty, COUNT(*) AS exercise_count 
+    FROM exercises 
+    GROUP BY difficulty 
+    ORDER BY FIELD(difficulty, 'Hard', 'Medium', 'Easy') DESC";
+    $pdo_statement = $this->db->prepare($sql);
+    $pdo_statement->execute();
+    return self::castToModel($pdo_statement->fetchAll());
+}
 }

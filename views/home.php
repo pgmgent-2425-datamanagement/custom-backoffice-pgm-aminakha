@@ -10,9 +10,7 @@
 
 <h1>Exercise Difficulty Chart</h1>
 <canvas id="difficultyChart" width="400" height="200"></canvas>
-
 <?php
-// Prepare arrays for JavaScript
 $labels = [];
 $data = [];
 
