@@ -142,3 +142,26 @@ body {
        
     }
 }
+
+.filemanager-container {
+& h1 {
+    margin-bottom: 2rem;
+}
+    & .filemanager__item{
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: var(--second-color);
+        border-bottom: solid 1px var(--fifth-color);
+        align-items: center;
+       
+        &:nth-child(2){
+     border-radius:1rem 1rem 0 0;
+    }
+    &:last-child {
+        border-radius: 0 0 1rem 1rem;
+    }
+}
+    
+    border-radius: 1rem;
+}

@@ -1,8 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $title ?></title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
 
-<h1>Basic Training</h1>
-<p>Welcome to this base mvc project.</p>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quia ut soluta consequuntur facilis corporis culpa vitae, voluptates nostrum molestiae optio enim ratione reprehenderit repellat. Reprehenderit, fugit. Enim, quae ducimus?
-Maxime soluta quos ipsum et, aut molestias labore blanditiis voluptatibus minima iste commodi nostrum. Quod eius nisi id quam consectetur animi. Provident ipsam magni vero animi corporis nihil excepturi? Nisi!
-Illum in accusantium natus aspernatur expedita. Qui sed commodi quisquam ea unde minus exercitationem fugiat architecto quae assumenda, natus dignissimos atque nihil excepturi in doloremque voluptates alias ut dolorum animi.
-Velit, eum soluta natus, ipsum laudantium vel, dolor quis deleniti suscipit provident quo inventore ducimus incidunt possimus ratione aperiam optio deserunt quos voluptatibus. Odit accusantium, ducimus quia deleniti vel consequatur.
-Tenetur rerum unde voluptate odit ipsa, enim ducimus eum reprehenderit! Natus adipisci magnam molestiae, ea, optio quae fugit omnis quasi eaque esse non mollitia placeat nobis voluptatibus minus ex voluptatem!
+<h1>Exercise Difficulty Chart</h1>
+<canvas id="difficultyChart" width="400" height="200"></canvas>
+
+<?php
+// Prepare arrays for JavaScript
+$labels = [];
+$data = [];
+
+foreach ($difficultyData as $item) {
+    $labels[] = $item->difficulty;
+    $data[] = $item->exercise_count;
+}
+?>
+
+<script>
+// Convert PHP arrays to JavaScript
+var labels = <?php echo json_encode($labels); ?>;
+var data = <?php echo json_encode($data); ?>;
+
+document.addEventListener("DOMContentLoaded", function() {
+    var ctx = document.getElementById('difficultyChart').getContext('2d');
+    var difficultyChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels, // Difficulty levels
+            datasets: [{
+                label: 'Number of Exercises',
+                data: data, // Number of exercises per difficulty
+                backgroundColor: ['#D9534F', '#F7B733', '#76C7C0'], // Colors for each bar
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Exercise Count'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Difficulty Level'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
