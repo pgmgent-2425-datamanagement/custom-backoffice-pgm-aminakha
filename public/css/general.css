@@ -4,7 +4,7 @@
     --thirdary-color:#213547;
     --fifth-color:#182b39;
     --light-color: #f4f8fb;
-    --gray-color: #c4d1d6;
+    --gray-color: #a4a7a8;
     --max-width: 95rem;
     --general-padding: 1rem;
     --border-radius: 0.5rem;
@@ -14,8 +14,24 @@
 
 a {
     text-decoration: none;
+    transistion: all 0.3s ease-in-out;  
     color: var(--light-color);
     &:hover {
-        color:#bbbbbb;
+        color:#var(--gray-color);   
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.main-container {
+    display: block;
+
+}
+
+.btn {
+    &.btn--img-small {
+        width: 2rem;
+        & img {
+            width: 1.5rem;
+        }
     }
 }

@@ -10,16 +10,21 @@
      <link rel="stylesheet" href="/css/header.css">
      <link rel="stylesheet" href="/css/footer.css">
      <link rel="stylesheet" href="/css/form.css">
-     
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
     
-
-    <?php include "../views/partials/header.php"?>
+    <section class="main-container">
+  <?php include "../views/partials/header.php"?>
     <main>
         <?= $content; ?>
     </main>
-    <?php include "../views/partials/footer.php"?>
+    
+
+
+    </section>
+  <?php include "../views/partials/footer.php"?>
 
     
     

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Exercise;
+use App\Models\Exercise_type;
 class ExerciseController extends BaseController {
 
     
@@ -45,8 +46,11 @@ class ExerciseController extends BaseController {
         //method bij api controller
     }
     public static function add() {
+        $types = Exercise_type::all();
         self::loadView('/exercise/addExercise/form', [
-            'title' => 'Add page'
+            'title' => 'Add page',
+            'types' => $types
+
         ]);
         if(isset($_POST['name'])) {
             $exercise = new Exercise();

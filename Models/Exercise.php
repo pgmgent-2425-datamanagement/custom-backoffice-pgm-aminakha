@@ -39,6 +39,15 @@ public function save() {
     $this->id = $this->db->lastInsertId();
 }
 
+protected function orderBy($column, $order ="desc") {
+
+    
+    $sql = "SELECT * FROM exercises ORDER BY $column $order";
+    $pdo_statement = $this->db->prepare($sql);
+    $pdo_statement->execute();
+    return self::castToModel($pdo_statement->fetchAll());
+}
+
 protected function where($column, $operator, $value) {
     $sql = "SELECT * FROM exercises WHERE $column $operator :value";
     $pdo_statement = $this->db->prepare($sql);

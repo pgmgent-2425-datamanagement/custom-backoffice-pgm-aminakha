@@ -17,15 +17,24 @@ class ExercisePageController extends BaseController {
                 'title' => 'Exercises',
                 'exercises' => $filteredExercise
             ]);
-
+            return;
             
+        }
+        if(isset($_GET['order'])) {
+            $order = $_GET['order'] === 'desc' ? 'desc' : 'asc'; // default to 'asc' if not 'desc'
+
+            $exercises = Exercise::orderBy('name', $order);
+            self::loadView('/exercise', [
+                'title' => 'Exercises',
+                'exercises' => $exercises
+            ]);
+return;
         }
         
             self::loadView('/exercise', [
                 'title' => 'Exercises',
                 'exercises' => $exercises
             ]);
-
 
     }
 

@@ -5,7 +5,12 @@
             <input type="text" name="search" placeholder="Search" value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>">
             <button type="submit">Search</button>
         </form>
-    <ul class="items-container" >
+        
+        <form method="get" action="/exercise">
+            <button class="btn btn--img-small" type="submit" name="order" value="asc">Order Ascending <img src="/assets/img/arrow-long-up.svg" alt="arrow up"></button>
+            <button class="btn btn--img-small" type="submit" name="order" value="desc">Order Descending <img src="/assets/img/arrow-long-down.svg" alt="arrow down"></button>
+        </form>
+        <ul class="items-container" >
        
 <?php
 foreach($exercises as $exercise) {

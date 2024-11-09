@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?></title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
 
+<section class="home-container container">
 <h1>Exercise Difficulty Chart</h1>
-<canvas id="difficultyChart" width="400" height="200"></canvas>
+<div class="canvas">
+    <canvas id="difficultyChart" ></canvas>
+    
+</div>
+
 <?php
 $labels = [];
 $data = [];
@@ -22,12 +18,13 @@ foreach ($difficultyData as $item) {
 
 <script>
 // Convert PHP arrays to JavaScript
-var labels = <?php echo json_encode($labels); ?>;
-var data = <?php echo json_encode($data); ?>;
+
+const labels = <?php echo json_encode($labels); ?>;
+const data = <?php echo json_encode($data); ?>;
 
 document.addEventListener("DOMContentLoaded", function() {
-    var ctx = document.getElementById('difficultyChart').getContext('2d');
-    var difficultyChart = new Chart(ctx, {
+    const ctx = document.getElementById('difficultyChart').getContext('2d');
+    const difficultyChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels, // Difficulty levels
@@ -64,6 +61,32 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+<div class="home-description">
+<p>
+    Deze grafiek geeft een overzicht van het aantal oefeningen, gesorteerd op moeilijkheidsgraad: Easy, Medium, en Hard. 
+    Elke moeilijkheidsgraad vertegenwoordigt een specifieke groep oefeningen, ingedeeld op basis van de intensiteit en technische uitdaging.
+</p>
+<ol>
+    <li>
+        <strong>Easy</strong> : Deze categorie bevat de eenvoudigste oefeningen, geschikt voor beginners of voor degenen die op zoek zijn naar een lichte inspanning.
+         Het aantal oefeningen in deze sectie is relatief hoog, wat wijst op een breed aanbod aan laagdrempelige activiteiten.
+    </li>
+    <li>
+        <strong>Medium</strong> : De oefeningen met een gemiddelde moeilijkheidsgraad vallen onder de Medium-categorie. 
+        Deze oefeningen vereisen vaak iets meer conditie, kracht en coördinatie en zijn bedoeld voor personen met enige ervaring.
+         De hoeveelheid oefeningen in deze categorie bevindt zich meestal tussen die van Easy en Hard, wat het gemiddelde niveau vertegenwoordigt.
+    </li>
+    <li>
+        <strong>Hard</strong> : De Hard-categorie omvat de meest uitdagende oefeningen, ontworpen voor gevorderde gebruikers die klaar zijn voor een intensieve workout. 
+        Deze oefeningen vereisen een hoger niveau van fitheid en vaardigheid. 
+        Het aantal oefeningen in deze sectie is vaak het laagst, aangezien deze categorie zich richt op een specifieke, meer ervaren doelgroep.
+    </li>
+</ol>
+<p>
+    Met deze indeling in de grafiek kun je snel een overzicht krijgen van het aantal oefeningen per moeilijkheidsgraad, 
+    wat helpt bij het kiezen van een training op het gewenste niveau.
+</p>
+</div>
 
-</body>
-</html>
+</section>
+
