@@ -7,7 +7,28 @@ body {
 
 
 .container {  
-    
+    & .methods-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    & .filter-container {
+        display:flex;
+        flex-direction: column; 
+        & .action-content {
+            display: flex;
+            align-items: center;
+            & select {
+              
+                border-radius: var(--border-radius);
+               height: 2rem;    
+                margin-right: 1rem;
+            }
+            & .btn {
+                margin-top: 0;
+            }
+        }
+    }
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
@@ -31,7 +52,7 @@ body {
             border-radius: var(--border-radius);
             transistion: all 0.3s ease-in-out;
             &.btn--img-small {
-                
+                margin-top: 0;
                 & img {
                     width: 1.5rem;
                 }
@@ -151,6 +172,7 @@ body {
         background-color: var(--second-color);
         border-bottom: solid 1px var(--fifth-color);
         align-items: center;
+        width: 100%;
        
         &:nth-child(2){
      border-radius:1rem 1rem 0 0;

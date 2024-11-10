@@ -10,6 +10,7 @@
 $labels = [];
 $data = [];
 
+
 foreach ($difficultyData as $item) {
     $labels[] = $item->difficulty;
     $data[] = $item->exercise_count;
@@ -88,5 +89,121 @@ document.addEventListener("DOMContentLoaded", function() {
 </p>
 </div>
 
+<div class="canvas">
+    <canvas id="genderChart"></canvas>
+  </div>
+<?php
+$genderLabels = [];
+$genderDataPoints = [];
+
+
+foreach ($genderData as $item) {
+    $genderLabels[] = $item->gender;
+    $genderDataPoints[] = $item->genders_count;
+}
+?>
+
+<script>
+// Convert PHP arrays to JavaScript
+
+const genderLabels = <?php echo json_encode($genderLabels); ?>;
+const genderDataPoints = <?php echo json_encode($genderDataPoints); ?>;
+
+document.addEventListener("DOMContentLoaded", function() {
+    const ctxGender = document.getElementById('genderChart').getContext('2d');
+    const genderChart = new Chart(ctxGender, {
+        type: 'pie',
+        data: {
+            labels: genderLabels, // Gender categories
+            datasets: [{
+                label: 'Number of Genders',
+                data: genderDataPoints, // Number of genders per category
+                backgroundColor: ['#D9534F', '#F7B733', '#76C7C0'], // Colors for each bar
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Gender Count'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Gender'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            }
+        }
+    });
+});
+</script>
+
+<?php
+$genderlabels = [];
+$genders = [];
+
+
+foreach ($genderData as $item) {
+    $genderlabels[] = $item->gender;
+    $genders[] = $item->genders_count;
+}
+?>
+
+<script>
+// Convert PHP arrays to JavaScript
+
+const genderlabels = <?php echo json_encode($genderlabels); ?>;
+const genders = <?php echo json_encode($genders); ?>;
+
+document.addEventListener("DOMContentLoaded", function() {
+    const ctx = document.getElementById('difficultyChart').getContext('2d');
+    const difficultyChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels, // Difficulty levels
+            datasets: [{
+                label: 'Number of Exercises',
+                data: data, // Number of exercises per difficulty
+                backgroundColor: ['#D9534F', '#F7B733'], // Colors for each bar
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Exercise Count'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Difficulty Level'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            }
+        }
+    });
+});
+</script>
 </section>
 

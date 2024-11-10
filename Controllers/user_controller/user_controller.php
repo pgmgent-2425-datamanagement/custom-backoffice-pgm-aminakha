@@ -16,6 +16,7 @@ class UserController extends BaseController {
             $user->email = $_POST['email'];
             $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $uploadResult = self::handleFileUpload($_FILES['avatar']);
+            $user->gender = $_POST['gender']; 
             if ($uploadResult['success']) {
                 $user->avatar = $uploadResult['fileName'];
                 $user->save();
@@ -80,6 +81,7 @@ class UserController extends BaseController {
             $user->last_name = htmlspecialchars($_POST['last_name'] ?? '');
             $user->email = htmlspecialchars($_POST['email'] ?? '');
             $user->password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
+            $user->gender = htmlspecialchars($_POST['gender'] ?? '');   
         
             // Check if 'avatar' key exists in $_FILES and has been uploaded
             if (isset($_FILES['avatar']) && is_array($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {

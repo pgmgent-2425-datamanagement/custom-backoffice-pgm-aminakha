@@ -30,12 +30,26 @@ class ExercisePageController extends BaseController {
             ]);
 return;
         }
-        
+        if(isset($_GET['filter'])) {
+            $filter = $_GET['filter'];
+            switch($filter) {
+                case 'Easy':
+                    $exercises = Exercise::where('difficulty', '=', $filter);
+                    break;
+                case 'Medium':
+                    $exercises = Exercise::where('difficulty', '=', $filter);
+                case 'Hard':
+                    $exercises = Exercise::where('difficulty', '=', $filter);
+                    break;
+                default:
+                    $exercises = Exercise::all();
+            }
+        }
             self::loadView('/exercise', [
                 'title' => 'Exercises',
                 'exercises' => $exercises
             ]);
-
+        
     }
 
 }

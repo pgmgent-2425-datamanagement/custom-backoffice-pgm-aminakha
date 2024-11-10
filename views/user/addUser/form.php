@@ -19,6 +19,14 @@
     
     <label for="avatar">Img</label>
     <input type="file" name="avatar" id="avatar" accept="image/*">
+
+  
+    <label for="gender">Gender</label>
+    <select name="gender" id="gender" required>
+        <option  value="">Select Gender</option>
+        <option type="radio" name="male" value="male">Male</option>
+        <option type="radio" name="female" value="female">Female</option>
+    </select>
     
     <button class="btn" type="submit">Add user</button>
 </form>
