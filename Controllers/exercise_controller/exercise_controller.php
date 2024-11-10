@@ -37,14 +37,7 @@ class ExerciseController extends BaseController {
         header('Location: /exercise');
         }
 
-    public static function getExercises() {
-        $exercises = Exercise::all();
-        header('Content-Type: application/json');
-        echo json_encode($exercises);
-        exit;
-
-        //method bij api controller
-    }
+  
     public static function add() {
         $types = Exercise_type::all();
         self::loadView('/exercise/addExercise/form', [

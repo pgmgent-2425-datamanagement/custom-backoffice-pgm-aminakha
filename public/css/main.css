@@ -94,6 +94,9 @@ body {
         padding: 1rem;
         outline: solid 3px var(--thirdary-color);
         border-radius: var(--border-radius);
+        & p {
+            text-transform : capitalize;
+        }
         & .btn {
             color: var(--fifth-color);
             margin-top: 1rem;
@@ -105,6 +108,7 @@ body {
              & img {
             border-radius: var(--border-radius);
             margin: 1rem 0;
+            width : var(--medium-img-size);
         }
         }
         & .btn-container {

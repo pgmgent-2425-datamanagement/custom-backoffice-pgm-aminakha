@@ -3,7 +3,11 @@
 //$router->get('/', function() { echo 'Dit is de index vanuit de route'; });
 $router->setNamespace('\App\Controllers');
 $router->get('/', 'HomeController@index');
-$router->get("/api/get_exercises", "ExerciseController@getExercises");
+
+//API routes
+$router->get("api/get_exercises", "ExerciseApiController@getExercises");
+$router->get("api/get_exercises/(\d+)", "ExerciseApiController@getExercise");
+$router->post("api/add_exercise", "ExerciseApiController@addExercise");
 
 //Exercise routes
 $router->get('/exercises', 'ExercisePageController@index');

@@ -7,7 +7,7 @@ use App\Models\User;
 class UserController extends BaseController {
     public static function add() {
         self::loadView('user/addUser/form', [
-            'title' => 'Add page'
+            'title' => 'Add user'
         ]);
         if(isset($_POST['first_name'])) {
             $user = new User();
