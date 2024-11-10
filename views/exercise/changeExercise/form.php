@@ -1,7 +1,7 @@
 
 <div class="container form-container">
     <h1>Edit Exercise</h1>
-    <form method="POST">
+    <form method="POST" >
     <label for="">Name</label>
     <input type="text" name="name" value="<?=$foundExercise->name?>">
     <label for="">Description</label>

@@ -19,7 +19,7 @@ class ExerciseController extends BaseController {
         $exercise->type_id = $_POST['type_id'];
         $exercise->image_url = $_POST['image_url'];
         $exercise->update();
-        header('Location: /exercise');
+        header('Location: /exercises');
         exit;
         }
         self::loadView('edit-page', [
