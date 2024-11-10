@@ -51,4 +51,4 @@ Met dit backoffice systeem kunnen sportorganisaties nu gemakkelijk hun activitei
 
 Hier is een voorbeeld van de home pagina:
 
-![My Image](/assets/screenshot/home.png)
+![My Image]("/public/assets/screenshot/home.png")
