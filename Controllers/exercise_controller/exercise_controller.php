@@ -34,7 +34,7 @@ class ExerciseController extends BaseController {
     public static function delete($id) {
         $exercise = Exercise::find($id);
         $exercise->delete();
-        header('Location: /exercise');
+        header('Location: /exercises');
         }
 
   

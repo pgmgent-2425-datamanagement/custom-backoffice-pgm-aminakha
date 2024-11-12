@@ -76,14 +76,12 @@ class UserController extends BaseController {
                 exit();
             }
         
-            // Validate and sanitize inputs, ensuring no undefined indexes are accessed
             $user->first_name = htmlspecialchars($_POST['first_name'] ?? '');
             $user->last_name = htmlspecialchars($_POST['last_name'] ?? '');
             $user->email = htmlspecialchars($_POST['email'] ?? '');
             $user->password = password_hash($_POST['password'] ?? '', PASSWORD_DEFAULT);
             $user->gender = htmlspecialchars($_POST['gender'] ?? '');   
         
-            // Check if 'avatar' key exists in $_FILES and has been uploaded
             if (isset($_FILES['avatar']) && is_array($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
                 $uploadResult = self::handleFileUpload($_FILES['avatar']);
         
@@ -91,6 +89,7 @@ class UserController extends BaseController {
                     $user->avatar = $uploadResult['fileName'];
                     print_r($user);
                     $user->edit();
+                    header("Location: /users");
 
                 } else {
                     echo "Failed to upload file: " . $uploadResult['message'];
@@ -98,14 +97,12 @@ class UserController extends BaseController {
                 }
             }
         
-            // Save user data
             if ($user->edit()) {
                 header("Location: /users");
                 exit();
             } 
         }
         
-        // Load the edit view with user data and title, only if no form was submitted or saving failed
         self::loadView('user/changeUser/edit-page-user', [
             'title' => 'Edit page',
             'user' => User::find($id),
