@@ -101,6 +101,7 @@ class UserController extends BaseController {
                 header("Location: /users");
                 exit();
             } 
+           
         }
         
         self::loadView('user/changeUser/edit-page-user', [

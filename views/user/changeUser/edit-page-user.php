@@ -21,7 +21,7 @@
     </div>
     <label for="">Gender</label>
     <select name="gender" id="gender" >
-        <option  value="">Select Gender</option>
+        <label  value="">Select Gender</label>
         <option type="radio" name="male" value="male">Male</option>
         <option type="radio" name="female" value="female">Female</option>
     </select>
