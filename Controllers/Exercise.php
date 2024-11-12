@@ -21,8 +21,7 @@ class ExercisePageController extends BaseController {
             
         }
         if(isset($_GET['order'])) {
-            $order = $_GET['order'] === 'desc' ? 'desc' : 'asc'; // default to 'asc' if not 'desc'
-
+            $order = $_GET['order'] === 'desc' ? 'desc' : 'asc'; 
             $exercises = Exercise::orderBy('name', $order);
             self::loadView('/exercise', [
                 'title' => 'Exercises',
